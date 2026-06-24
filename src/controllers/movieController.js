@@ -6,5 +6,4 @@ movieController.get('/create', (req, res) => {
     res.render('movies/create');
 });
 
-
 export default movieController;

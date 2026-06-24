@@ -1,5 +1,6 @@
 import express from 'express';
 import { engine } from 'express-handlebars';
+
 import routes from './routes.js';
 
 const app = express();
@@ -12,7 +13,7 @@ app.set('view engine', 'hbs');
 app.set('views', './src/views');
 
 // Setup static assets
-app.use(express.static('./src/public'))
+app.use(express.static('./src/public'));
 
 // Setup routes
 app.use(routes);
