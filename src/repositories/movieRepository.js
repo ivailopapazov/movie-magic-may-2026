@@ -1,5 +1,5 @@
 import fs from 'fs/promises';
-import {v4 as uuid} from 'uuid';
+import { v4 as uuid } from 'uuid';
 
 async function readDb(collection) {
     const content = await fs.readFile('./src/db.json', { encoding: 'utf-8' });
@@ -18,8 +18,23 @@ async function writeDb(db) {
     await fs.writeFile('./src/db.json', content, { encoding: 'utf-8' });
 }
 
-async function getAll() {
-    const movies = await readDb('movies');
+async function getAll(filter = {}) {
+    let movies = await readDb('movies');
+
+    // Partial case insensitive search
+    if (filter.search) {
+        movies = movies.filter(movie => movie.title.toLowerCase().includes(filter.search.toLowerCase()));
+    }
+
+    // Exact search
+    if (filter.year) {
+        movies = movies.filter(movie => movie.year === filter.year);
+    }
+
+    // Exact case insensitive
+    if (filter.genre) {
+        movies = movies.filter(movie => movie.genre.toLowerCase() === filter.genre.toLowerCase());
+    }
 
     return movies;
 }
