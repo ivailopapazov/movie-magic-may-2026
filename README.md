@@ -4,9 +4,9 @@ SoftUni JS Back-End Course Workshop
 ## Workshop 1 - Express and Templating
 
 ### Setup
- - [ ] Initialize Project
- - [ ] Add Express Server `npm i express`
- - [ ] Config debugging
+ - [x] Initialize Project
+ - [x] Add Express Server `npm i express`
+ - [ ] Config debugging and dev script
  - [ ] Add Workshop Resources
  - [ ] Setup Handlebars `npm i express-handlebars`
  - [ ] Setup static files
