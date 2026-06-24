@@ -43,6 +43,17 @@
       "rating": 6.4,
       "description": "An investigative journalist and self-proclaimed atheist sets out to disprove the existence of God after his wife becomes a Christian.",
       "id": "8555329f-0735-4956-9176-7ffb388c2443"
+    },
+    {
+      "title": "Some Movie",
+      "category": "animation",
+      "genre": "superhero",
+      "director": " Peter Jackson",
+      "year": "2021",
+      "imageUrl": "https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_.jpg",
+      "rating": "8.9",
+      "description": "asdasdasd",
+      "id": "f1199a15-6163-4213-a279-0cf7abe09a19"
     }
   ]
 }
