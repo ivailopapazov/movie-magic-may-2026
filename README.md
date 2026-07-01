@@ -73,6 +73,6 @@ SoftUni JS Back-End Course Workshop
 
 ### Refactor Movies
  - [x] Remove uuid
- - [ ] Create Movie
+ - [x] Create Movie
  - [ ] Refactor Read all movies
  - [ ] 

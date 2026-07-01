@@ -19,8 +19,9 @@ async function writeDb(db) {
 }
 
 async function getAll(filter = {}) {
-    let movies = await readDb('movies');
+    let movies = await prisma.movie.findMany();
 
+    // TODO Implement database filtering instead of filtering in memory
     // Partial case insensitive search
     if (filter.search) {
         movies = movies.filter(movie => movie.title.toLowerCase().includes(filter.search.toLowerCase()));
@@ -55,7 +56,7 @@ async function create(movieData) {
     const movie = await prisma.movie.create({
         data: movieData,
     });
-    
+
     return movie;
 }
 
