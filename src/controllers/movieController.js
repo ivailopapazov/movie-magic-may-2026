@@ -12,7 +12,7 @@ movieController.get('/search', async (req, res) => {
 });
 
 movieController.get('/create', (req, res) => {
-    res.render('movies/create', {pageTitle: 'Create Movie'});
+    res.render('movies/create', { pageTitle: 'Create Movie' });
 });
 
 movieController.post('/create', async (req, res) => {
@@ -32,6 +32,10 @@ movieController.get('/:movieId', async (req, res) => {
     const ratingStars = '&#x2605;'.repeat(Math.floor(movie.rating))
 
     res.render('movies/details', { movie, pageTitle: 'Movie Details', ratingStars });
+});
+
+movieController.get('/:movieId/attach', async (req, res) => {
+    res.render('movies/attach', { pageTitle: 'Attach Movie' });
 });
 
 export default movieController;
