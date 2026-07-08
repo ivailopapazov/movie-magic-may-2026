@@ -27,7 +27,7 @@ export async function login(userData) {
         throw new Error('Invalid password!');
     }
 
-    const payload = { userId: user.id, email: user.email };
+    const payload = { id: user.id, email: user.email };
     // TODO fix this secret
 
     const token = jwt.sign(payload, 'SECRETGOESHERE', { expiresIn: '1h' });
