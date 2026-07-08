@@ -107,3 +107,13 @@ SoftUni JS Back-End Course Workshop
  - [x] Search filter in db
  - [ ] Name in movie (Explicit Many-to-Many)
  - [ ] Modify service export
+
+## Workshop 3 - Session and Authentication
+
+### Intro
+ - [x] Add resources
+
+### Register
+ - [ ] Add auth controller
+
+### Bonuses

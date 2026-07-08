@@ -6,7 +6,7 @@ export async function getAll(filter = {}) {
             id: {
                 notIn: Array.isArray(filter.exclude) 
                     ? filter.exclude 
-                    : []
+                    : [],
             }
         }
     });
