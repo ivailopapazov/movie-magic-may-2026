@@ -1,8 +1,14 @@
+import { prisma } from '../lib/prisma.js';
 
-export function create(userData) {
-    // Here you would typically add logic to save the user data to a database
-    // For now, we'll just log the user data to the console
-    console.log('Creating user in repo:', userData);
+export async function create(userData) {
+    const result = await prisma.user.create({
+        data: {
+            email: userData.email,
+            password: userData.password,
+        }
+    });
+
+    return result;
 }
 
 const userRepository = {
