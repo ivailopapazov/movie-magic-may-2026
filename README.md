@@ -132,3 +132,4 @@ SoftUni JS Back-End Course Workshop
 
 ### Bonuses
  - [ ] Validate repeat password
+ - [ ] Automatic login on register
