@@ -5,20 +5,14 @@ import "dotenv/config";
 
 import routes from './routes.js';
 import { authMiddleware } from './middlewares/authMiddleware.js';
+import * as helpers from './views/helpers';
 
 const app = express();
 
 // Setup handlebars
 app.engine('hbs', engine({
     extname: 'hbs',
-    helpers: {
-        isSelected() {
-            return this.selected ? 'selected' : '';
-        },
-        setTitle(title) {
-            this.pageTitle = title;
-        }
-    }
+    helpers,
 }));
 app.set('view engine', 'hbs');
 app.set('views', './src/views');
