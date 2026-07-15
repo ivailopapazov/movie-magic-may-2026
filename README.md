@@ -184,3 +184,6 @@ SoftUni JS Back-End Course Workshop
  - [x] Validate User
  - [x] Validate repeat password
  - [x] Validate unique email (async validation)
+
+### Bonus
+ - [ ] Fix dynamic page titles
