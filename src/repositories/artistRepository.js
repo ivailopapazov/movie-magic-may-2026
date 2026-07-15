@@ -4,8 +4,8 @@ export async function getAll(filter = {}) {
     const artists = await prisma.artist.findMany({
         where: {
             id: {
-                notIn: Array.isArray(filter.exclude) 
-                    ? filter.exclude 
+                notIn: Array.isArray(filter.exclude)
+                    ? filter.exclude
                     : [],
             }
         }
