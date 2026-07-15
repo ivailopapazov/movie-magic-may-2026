@@ -1,7 +1,10 @@
 import { Router } from 'express';
+import * as z from "zod";
+
 import movieService from '../services/movieService.js';
 import artistService from '../services/artistService.js';
 import { isAuth } from '../middlewares/authMiddleware.js';
+import { createMovieSchema } from '../schemas/movieSchema.js';
 
 const movieController = Router();
 
@@ -21,9 +24,21 @@ movieController.post('/create', isAuth, async (req, res) => {
     const newMovie = req.body;
     const userId = req.user.id;
 
-    await movieService.create(newMovie, userId);
+    try {
+        const movieData = createMovieSchema.parse(newMovie);
 
-    res.redirect('/');
+        await movieService.create(movieData, userId);
+
+        res.redirect('/');
+    } catch (error) {
+        if (error instanceof z.ZodError) {
+            const errors = z.flattenError(error).fieldErrors;
+
+            const categoryOptions = prepareCategoryViewData(newMovie);
+
+            res.status(400).render('movies/create', { movie: req.body, errors, categoryOptions, pageTitle: 'Create Movie' });
+        }
+    }
 });
 
 movieController.get('/:movieId', async (req, res) => {
@@ -60,10 +75,10 @@ movieController.post('/:movieId/attach', isAuth, async (req, res) => {
 
 movieController.get('/:movieId/delete', isAuth, async (req, res) => {
     const movieId = Number(req.params.movieId);
-    const userId = req.user.id; 
+    const userId = req.user.id;
 
     await movieService.remove(movieId, userId);
-    
+
     res.redirect('/');
 });
 
@@ -96,7 +111,6 @@ movieController.get('/:movieId/edit', isAuth, async (req, res) => {
     }
 
     const categoryOptions = prepareCategoryViewData(movie);
-
 
     res.render('movies/edit', { pageTitle: 'Edit Movie', movie, categoryOptions });
 });
