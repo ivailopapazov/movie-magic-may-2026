@@ -13,8 +13,11 @@
                     {{#each artists}}
                     <option value="{{id}}">{{name}}</option>
                     {{/each}}
-
                 </select>
+                <div style="width: 50%; display:flex; justify-content: center;">
+                    <label for="name-in-movie">Name:</label>
+                    <input type="text" class="inputFields" id="name-in-movie" name="character" />
+                </div>
                 <div id="center-btn">
                     <button id="create-btn">Add Cast</button>
                 </div>
